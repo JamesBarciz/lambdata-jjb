@@ -26,7 +26,7 @@ class DataFrameFunctions:
 
         :param self.df: pd.DataFrame - Pandas DataFrame object
         :param frac: float - Proportion of records to attribute to train and test
-        :return: X_train, X_test: pd.DataFrame objects
+        :return: train, test: pd.DataFrame objects
         """
 
         train = self.df.sample(frac=frac, random_state=42)
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(data)
 
     data_class = DataFrameFunctions(df)
-    
+
     print(f'Number of nulls in the DataFrame: {data_class.null_count()}')
 
     train, test = data_class.train_test_split(frac=0.5)
